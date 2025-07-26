@@ -1,0 +1,48 @@
+# Task: Build Professional Services Page for "المستقل الذكي"
+
+I need to transform the current basic Services page into a comprehensive, professional showcase that demonstrates the value of "المستقل الذكي" platform for Arabic freelancers.
+
+**Requirements:**
+
+1. **Hero Section:**
+   - Compelling Arabic headline about AI-powered freelancing services
+   - Brief description of how we help freelancers increase productivity and income
+   - Call-to-action button (e.g., "ابدأ رحلتك الآن" or "اكتشف خدماتنا")
+
+2. **Services Grid (3-4 main services):**
+   - **AI Tools Training:** Training freelancers on AI tools and integration
+   - **Productivity Consulting:** Personalized consulting to optimize workflows
+   - **Content Creation Services:** AI-assisted content creation for businesses
+   - **Automation Solutions:** Custom automation solutions for freelance businesses
+
+3. **Each Service Card Should Include:**
+   - Professional icon (use Lucide icons or similar)
+   - Service title in Arabic
+   - Detailed description (2-3 sentences)
+   - Key benefits/features list
+   - Pricing indicator or "Contact for pricing"
+   - "Learn More" button
+
+4. **Features Section:**
+   - Highlight unique selling points
+   - Use icons and brief descriptions
+   - Focus on AI integration, Arabic support, proven results
+
+5. **Social Proof Section:**
+   - Testimonials placeholder (we'll add real ones later)
+   - Success statistics (e.g., "زيادة الإنتاجية بنسبة 300%")
+   - Client logos placeholder
+
+6. **Call-to-Action Section:**
+   - Strong closing message
+   - Contact form or contact button
+   - Social media links
+
+**Design Requirements:**
+- Modern, clean design with Arabic RTL support
+- Professional color scheme (blues, whites, accent colors)
+- Responsive design for mobile and desktop
+- Smooth animations and hover effects
+- High-quality visual hierarchy
+
+Please create a comprehensive, professional services page that positions "المستقل الذكي" as the leading platform for AI-powered freelancing in the Arabic market.
