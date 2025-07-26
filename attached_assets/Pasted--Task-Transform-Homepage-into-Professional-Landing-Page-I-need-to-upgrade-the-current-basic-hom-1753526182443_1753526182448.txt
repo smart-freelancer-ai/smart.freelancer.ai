@@ -1,0 +1,56 @@
+# Task: Transform Homepage into Professional Landing Page
+
+I need to upgrade the current basic homepage into a comprehensive, conversion-focused landing page that effectively introduces "المستقل الذكي" and drives visitors to take action.
+
+**Requirements:**
+
+1. **Hero Section (Above the fold):**
+   - Powerful headline: "حول شغفك إلى دخل مضاعف مع الذكاء الاصطناعي"
+   - Compelling subheadline about empowering Arabic freelancers with AI
+   - Primary CTA button: "ابدأ رحلتك المجانية"
+   - Secondary CTA: "شاهد كيف يعمل"
+   - Hero image or illustration representing AI + freelancing
+
+2. **Problem/Solution Section:**
+   - Address common freelancer challenges (low income, time management, competition)
+   - Present AI as the solution
+   - Use statistics and compelling copy
+
+3. **Services Preview:**
+   - Brief overview of our 4 main services
+   - "View All Services" button linking to /services
+
+4. **Success Stories/Results:**
+   - Showcase impressive statistics
+   - "300% زيادة في الإنتاجية", "500+ مستقل نجح معنا"
+   - Brief success story or testimonial
+
+5. **How It Works (3-step process):**
+   - Step 1: تعلم الأدوات (Learn the tools)
+   - Step 2: طبق الاستراتيجيات (Apply strategies)  
+   - Step 3: ضاعف دخلك (Double your income)
+
+6. **Latest Blog Posts:**
+   - Display 3 most recent blog posts from our database
+   - "Read More Articles" button linking to /blog
+
+7. **Final CTA Section:**
+   - Strong closing message
+   - Contact form or "Get Started" button
+   - Trust indicators (security, support, etc.)
+
+**Design Requirements:**
+- Modern, professional design matching the Services page
+- Excellent visual hierarchy and flow
+- Mobile-responsive design
+- Fast loading and smooth animations
+- Strong conversion optimization focus
+- Arabic RTL support throughout
+
+**Content Tone:**
+- Inspiring and motivational
+- Professional yet approachable
+- Results-focused
+- Specifically tailored for Arabic freelancers
+
+Please create a homepage that positions "المستقل الذكي" as the definitive solution for Arabic freelancers looking to leverage AI for business growth.
