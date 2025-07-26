@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack web application built with React frontend and Express backend, featuring an Arabic-language website called "المستقل الذكي" (Smart Freelancer). The application uses a modern tech stack with TypeScript, Tailwind CSS, shadcn/ui components, and Drizzle ORM for database operations.
+This is a full-stack web application built with React frontend and Express backend, featuring an Arabic-language website called "المستقل الذكي" (Smart Freelancer). The application uses a modern tech stack with TypeScript, Tailwind CSS, shadcn/ui components, and Supabase for database operations with a dynamic blog content management system.
 
 ## User Preferences
 
@@ -20,10 +20,10 @@ Preferred communication style: Simple, everyday language.
 
 ### Backend Architecture
 - **Framework**: Express.js with TypeScript
-- **Database**: PostgreSQL with Drizzle ORM
-- **Database Provider**: Neon Database (@neondatabase/serverless)
-- **Session Management**: Built-in storage interface with in-memory implementation
-- **API Structure**: RESTful API with /api prefix routing
+- **Database**: PostgreSQL with Supabase (@supabase/supabase-js)
+- **Database Provider**: Supabase (https://ygallbgbgowgygzzbvsi.supabase.co)
+- **Content Management**: Dynamic blog system with CRUD operations
+- **API Structure**: Direct Supabase client-side integration
 
 ### Key Design Decisions
 
@@ -42,12 +42,13 @@ Preferred communication style: Simple, everyday language.
 ## Key Components
 
 ### Database Schema
-- **Users Table**: Basic user management with id, username, and password fields
-- **Drizzle Configuration**: Configured for PostgreSQL with migrations support
+- **Posts Table**: Blog post management with id, title, slug, content, author_name, image_url, published, created_at fields
+- **Supabase Configuration**: Configured for PostgreSQL with Row Level Security for anonymous access
 
 ### Frontend Pages
 - **Home**: Landing page with feature cards and Arabic content
-- **Blog**: Blog listing page (placeholder)
+- **Blog**: Dynamic blog listing page with Supabase integration
+- **Admin**: Content management interface for creating blog posts
 - **Services**: Services showcase page (placeholder)  
 - **Contact**: Contact information page (placeholder)
 - **404**: Not found page with error handling
@@ -73,11 +74,10 @@ Preferred communication style: Simple, everyday language.
 - Lucide React for icons
 - Class Variance Authority for component variants
 
-### Backend
-- Express.js for server framework
-- Drizzle ORM for database operations
-- Neon Database for PostgreSQL hosting
-- Connect-pg-simple for session storage
+### Database and Content Management
+- Supabase for PostgreSQL database hosting and real-time features
+- React Hook Form for form handling with Zod validation
+- TanStack React Query for server state management
 
 ### Development Tools
 - Vite for fast development and building
@@ -93,7 +93,9 @@ Preferred communication style: Simple, everyday language.
 - Shared types are included in both builds
 
 **Environment Configuration**:
-- Database URL required via `DATABASE_URL` environment variable
+- Supabase project URL and anon key configured directly in client
+- Current project: https://ygallbgbgowgygzzbvsi.supabase.co
+- Row Level Security enabled for anonymous access
 - Production/development modes supported
 - Replit-specific development features included
 
@@ -102,4 +104,17 @@ Preferred communication style: Simple, everyday language.
 - Development uses Vite middleware for HMR
 - API routes prefixed with /api to avoid conflicts
 
-The application follows modern web development best practices with TypeScript throughout, comprehensive error handling, and a scalable architecture suitable for a freelancer services platform.
+The application follows modern web development best practices with TypeScript throughout, comprehensive error handling, and a scalable architecture suitable for a freelancer services platform with dynamic content management capabilities.
+
+## Recent Changes (January 2025)
+
+**Supabase Integration**: Migrated from Neon Database to Supabase for better real-time capabilities and easier management. Updated project to use new Supabase project (ygallbgbgowgygzzbvsi).
+
+**Dynamic Blog System**: Implemented complete blog content management with:
+- Dynamic blog post fetching and display
+- Admin interface for content creation
+- Arabic content support with proper RTL layout
+- Automatic slug generation for Arabic titles
+- Image support and publish/unpublish functionality
+
+**UI/UX Improvements**: Fixed all React nested anchor warnings, improved navigation, and enhanced Arabic typography with proper RTL support throughout the application.

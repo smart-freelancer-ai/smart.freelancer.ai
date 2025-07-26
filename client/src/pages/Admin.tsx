@@ -3,6 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { supabase } from "../lib/supabase";
+import { setupDatabase, testConnection } from "../lib/database-setup";
 import { InsertPostSchema, InsertPost, createSlug } from "../../../shared/blog-schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Switch } from "@/components/ui/switch";
-import { Save, Plus } from "lucide-react";
+import { Save, Plus, Database, TestTube } from "lucide-react";
 
 async function createPost(post: InsertPost) {
   const { data, error } = await supabase
@@ -27,15 +28,50 @@ async function createPost(post: InsertPost) {
 }
 
 async function initializeTable() {
-  // First, try to create the table if it doesn't exist
-  const { error: createError } = await supabase.rpc('create_posts_table');
-  
-  if (createError) {
-    // If RPC doesn't exist, we'll create the table manually
-    console.log('RPC not available, table might already exist or need manual creation');
+  try {
+    // Step 1: Create the posts table if it doesn't exist
+    const { error: tableError } = await supabase.rpc('create_posts_table', {
+      sql: `
+        CREATE TABLE IF NOT EXISTS posts (
+          id SERIAL PRIMARY KEY,
+          title TEXT NOT NULL,
+          slug TEXT NOT NULL UNIQUE,
+          content TEXT NOT NULL,
+          author_name TEXT NOT NULL,
+          image_url TEXT,
+          published BOOLEAN DEFAULT true,
+          created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        );
+      `
+    });
+
+    // If RPC doesn't work, try direct SQL execution
+    if (tableError) {
+      console.log('RPC method failed, attempting direct SQL execution');
+      
+      // Try to create table directly
+      const { error: directError } = await supabase
+        .from('posts')
+        .select('id')
+        .limit(1);
+      
+      if (directError && directError.message.includes('relation "posts" does not exist')) {
+        throw new Error('Posts table does not exist and cannot be created automatically. Please create it manually in Supabase Dashboard.');
+      }
+    }
+
+    // Step 2: Configure Row Level Security
+    const { error: rlsError } = await supabase.rpc('setup_posts_rls');
+    
+    if (rlsError) {
+      console.log('RLS setup failed, table might already be configured or need manual setup');
+    }
+
+    return true;
+  } catch (error) {
+    console.error('Table initialization error:', error);
+    throw error;
   }
-  
-  return true;
 }
 
 export default function Admin() {
@@ -75,17 +111,34 @@ export default function Admin() {
   });
 
   const initializeMutation = useMutation({
-    mutationFn: initializeTable,
-    onSuccess: () => {
+    mutationFn: setupDatabase,
+    onSuccess: (result) => {
       toast({
         title: "تم التهيئة",
-        description: "تم تهيئة قاعدة البيانات بنجاح",
+        description: result.message,
       });
     },
     onError: (error) => {
       toast({
         variant: "destructive",
         title: "خطأ في التهيئة",
+        description: error.message,
+      });
+    },
+  });
+
+  const testConnectionMutation = useMutation({
+    mutationFn: testConnection,
+    onSuccess: (result) => {
+      toast({
+        title: "اختبار الاتصال ناجح",
+        description: `تم الاتصال بقاعدة البيانات. عدد المقالات: ${result.count}`,
+      });
+    },
+    onError: (error) => {
+      toast({
+        variant: "destructive",
+        title: "فشل اختبار الاتصال",
         description: error.message,
       });
     },
@@ -161,26 +214,42 @@ export default function Admin() {
           </p>
         </div>
 
-        {/* Initialize Database Button */}
-        <div className="mb-8 p-4 bg-blue-50 rounded-lg">
-          <h2 className="text-lg font-semibold mb-2">تهيئة قاعدة البيانات</h2>
+        {/* Database Management Section */}
+        <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+          <h2 className="text-xl font-semibold mb-3 flex items-center gap-2">
+            <Database className="w-5 h-5" />
+            إدارة قاعدة البيانات
+          </h2>
           <p className="text-gray-600 mb-4">
-            إذا كانت هذه المرة الأولى التي تستخدم فيها النظام، اضغط على الزر أدناه لتهيئة قاعدة البيانات.
+            إدارة اتصال قاعدة البيانات والمحتوى. استخدم هذه الأدوات لاختبار الاتصال وإضافة المحتوى النموذجي.
           </p>
-          <div className="flex gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Button
+              onClick={() => testConnectionMutation.mutate()}
+              disabled={testConnectionMutation.isPending}
+              variant="outline"
+              className="flex items-center gap-2"
+            >
+              <TestTube className="w-4 h-4" />
+              {testConnectionMutation.isPending ? "جاري الاختبار..." : "اختبار الاتصال"}
+            </Button>
             <Button
               onClick={handleInitialize}
               disabled={isInitializing || initializeMutation.isPending}
               variant="outline"
+              className="flex items-center gap-2"
             >
+              <Database className="w-4 h-4" />
               {(isInitializing || initializeMutation.isPending) ? "جاري التهيئة..." : "تهيئة قاعدة البيانات"}
             </Button>
             <Button
               onClick={addSamplePosts}
               disabled={createPostMutation.isPending}
               variant="secondary"
+              className="flex items-center gap-2"
             >
-              إضافة مقالات نموذجية
+              <Plus className="w-4 h-4" />
+              {createPostMutation.isPending ? "جاري الإضافة..." : "إضافة مقالات نموذجية"}
             </Button>
           </div>
         </div>
