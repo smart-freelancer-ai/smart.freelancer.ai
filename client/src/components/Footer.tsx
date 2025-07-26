@@ -32,9 +32,9 @@ export default function Footer() {
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>
-                    <a className="text-gray-300 hover:text-blue-400 text-sm transition-colors duration-200">
+                    <span className="text-gray-300 hover:text-blue-400 text-sm transition-colors duration-200 cursor-pointer">
                       {link.label}
-                    </a>
+                    </span>
                   </Link>
                 </li>
               ))}
