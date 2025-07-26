@@ -1,0 +1,39 @@
+# Task: Initial Project Scaffolding for "المستقل الذكي"
+
+Hello! Please set up the initial structure for my Next.js application based on the "Pages Router" architecture.
+
+**Overall Goal:** Create a clean, well-structured, and professional foundation for an Arabic-language website.
+
+**Detailed Instructions:**
+
+1.  **Global Font and RTL:**
+    *   In `styles/globals.css`, import the "Tajawal" Google Font.
+    *   Apply the "Tajawal" font to the `body`.
+    *   Set the default text direction to RTL for the entire application.
+    *   Remove any default placeholder styling from the body and main elements.
+
+2.  **Navbar Component:**
+    *   Create a new folder named `components`.
+    *   Inside `components`, create a new file `Navbar.tsx`.
+    *   The Navbar component should have a dark background (`#0D1117`), a main container, the title "المستقل الذكي" on the left, and the following navigation links on the right: "الرئيسية", "المدونة", "خدماتنا", "تواصل معنا".
+    *   Use Next.js `<Link>` for navigation.
+    *   Create a corresponding CSS module file `Navbar.module.css` for its styles, using Flexbox for layout.
+
+3.  **Footer Component:**
+    *   Inside the `components` folder, create a new file `Footer.tsx`.
+    *   The Footer component should also have a dark background (`#0D1117`).
+    *   It should be divided into three columns for: site description, quick links, and social media placeholders.
+    *   Include a copyright notice "© 2025 المستقل الذكي. جميع الحقوق محفوظة." at the bottom.
+    *   Create a corresponding CSS module file `Footer.module.css` for its styles.
+
+4.  **Root Layout (`_app.tsx`):**
+    *   Modify the `pages/_app.tsx` file to import and use the `Navbar` and `Footer` components.
+    *   The structure should be: `Navbar` at the top, then the page content, and `Footer` at the bottom.
+    *   Ensure the layout is structured (e.g., using a flexbox wrapper) to allow the footer to stick to the bottom of the page, even if the content is short.
+
+5.  **Home Page (`index.tsx`):**
+    *   Modify the `pages/index.tsx` file.
+    *   Remove all default placeholder content.
+    *   Add a simple `<h1>` that says "الصفحة الرئيسية لمشروع المستقل الذكي" centered on the page.
+
+Please execute all these changes across all the necessary files.
