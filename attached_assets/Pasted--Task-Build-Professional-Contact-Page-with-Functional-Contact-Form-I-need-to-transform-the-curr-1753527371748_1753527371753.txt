@@ -1,0 +1,56 @@
+# Task: Build Professional Contact Page with Functional Contact Form
+
+I need to transform the current basic Contact page into a comprehensive, professional contact page that makes it easy for potential clients to reach out and get started with our services.
+
+**Requirements:**
+
+1. **Hero Section:**
+   - Compelling headline: "تواصل معنا وابدأ رحلتك نحو النجاح"
+   - Brief description encouraging visitors to get in touch
+   - Contact information display (email, phone, social media)
+
+2. **Contact Form:**
+   - Name field (required)
+   - Email field (required, with validation)
+   - Phone number field (optional)
+   - Service interest dropdown (AI Tools Training, Productivity Consulting, Content Creation, Automation Solutions, General Inquiry)
+   - Message field (required, large textarea)
+   - Submit button: "أرسل رسالتك"
+   - Form validation with Arabic error messages
+   - Success message after submission
+
+3. **Contact Information Section:**
+   - Business hours: "الأحد - الخميس: 9:00 ص - 6:00 م"
+   - Email: info@smartfreelancer.ai (placeholder)
+   - Phone: +966 50 123 4567 (placeholder)
+   - Location: "الرياض، المملكة العربية السعودية"
+
+4. **FAQ Section:**
+   - 5-6 frequently asked questions about our services
+   - Collapsible/expandable answers
+   - Questions like: "كم تستغرق دورة التدريب؟", "هل تقدمون استشارات مخصصة؟", "ما هي تكلفة الخدمات؟"
+
+5. **Social Media Links:**
+   - Instagram, LinkedIn, Twitter placeholders
+   - Professional social media icons
+
+6. **Call-to-Action:**
+   - "هل تفضل التحدث مباشرة؟"
+   - WhatsApp button or phone call button
+   - "احجز استشارة مجانية" button
+
+**Technical Requirements:**
+- Form should handle submission gracefully (even if backend isn't fully implemented)
+- Client-side validation with Arabic messages
+- Responsive design matching other pages
+- Professional styling with good UX
+- Arabic RTL support throughout
+
+**Design Requirements:**
+- Clean, professional layout
+- Easy-to-use contact form
+- Clear contact information display
+- Trust-building elements
+- Consistent with site branding
+
+Please create a contact page that makes it effortless for potential clients to reach out and builds confidence in our professionalism.
