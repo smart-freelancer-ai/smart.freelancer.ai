@@ -8,12 +8,16 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col rtl-content arabic-text">
-      <Navbar />
+    <div className="min-h-screen bg-white flex flex-col">
+      <header>
+        <Navbar />
+      </header>
       <main className="flex-grow">
         {children}
       </main>
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

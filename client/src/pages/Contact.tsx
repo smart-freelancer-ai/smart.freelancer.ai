@@ -5,13 +5,13 @@ import {
   MapPin, 
   Clock, 
   MessageSquare, 
-  Instagram, 
-  Linkedin, 
-  Twitter,
-  ChevronDown,
+  Send, 
   CheckCircle,
-  Send,
-  MessageCircle
+  ArrowRight,
+  Users,
+  Shield,
+  Award,
+  ChevronDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -19,8 +19,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useToast } from "@/hooks/use-toast";
+import SEOHead from "@/components/SEOHead";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -95,7 +96,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -105,7 +106,7 @@ export default function Contact() {
     // Simulate form submission
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
+
       setSubmitted(true);
       toast({
         title: "تم إرسال رسالتك بنجاح!",
@@ -149,7 +150,7 @@ export default function Contact() {
           <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
             نحن هنا لمساعدتك في تحقيق أهدافك وتطوير مهاراتك. تواصل معنا اليوم واحصل على استشارة مجانية
           </p>
-          
+
           {/* Contact Info Cards */}
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">

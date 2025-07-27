@@ -3,6 +3,7 @@ import { supabase } from "../lib/supabase";
 import { Post } from "../../../shared/blog-schema";
 import { Link } from "wouter";
 import { Calendar, User, ExternalLink } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 async function fetchPosts(): Promise<Post[]> {
   const { data, error } = await supabase
@@ -57,6 +58,10 @@ export default function Blog() {
 
   return (
     <div className="flex-grow py-12 px-4">
+      <SEOHead
+        title="مدونة المستقل الذكي | مقالات ونصائح في الذكاء الاصطناعي والعمل الحر"
+        description="اكتشف أحدث المقالات والنصائح حول كيفية استخدام الذكاء الاصطناعي لتعزيز مسيرتك المهنية كمستقل عربي."
+      />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -80,12 +85,12 @@ export default function Blog() {
                     />
                   </div>
                 )}
-                
+
                 <div className="p-6">
                   <h2 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
                     {post.title}
                   </h2>
-                  
+
                   <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
                     <div className="flex items-center gap-1">
                       <User className="w-4 h-4" />
@@ -102,11 +107,11 @@ export default function Blog() {
                       </span>
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-600 leading-relaxed mb-4 line-clamp-3">
                     {post.content.substring(0, 150)}...
                   </p>
-                  
+
                   <Link href={`/blog/${post.slug}`}>
                     <span className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 cursor-pointer">
                       اقرأ المزيد

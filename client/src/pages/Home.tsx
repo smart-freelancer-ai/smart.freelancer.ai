@@ -20,6 +20,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../lib/supabase";
+import SEOHead from "@/components/SEOHead";
 
 export default function Home() {
   // Fetch latest blog posts
@@ -94,9 +95,13 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex-grow">
+    <article className="flex-grow">
+      <SEOHead
+        title="المستقل الذكي | دليلك لزيادة الدخل بالذكاء الاصطناعي"
+        description="منصة المستقل الذكي تمكن المستقلين العرب من مضاعفة إنتاجيتهم ودخلهم باستخدام أحدث أدوات واستراتيجيات الذكاء الاصطناعي."
+      />
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-24 px-4 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-24 px-4 relative overflow-hidden" role="banner">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-transparent" />
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -385,11 +390,11 @@ export default function Home() {
                     {post.image_url ? (
                       <img 
                         src={post.image_url} 
-                        alt={post.title}
+                        alt={`صورة مقال: ${post.title} - ${post.author_name}`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center">
+                      <div className="w-full h-full flex items-center justify-center" role="img" aria-label="أيقونة مقال افتراضية">
                         <PenTool className="w-12 h-12 text-blue-600" />
                       </div>
                     )}
@@ -461,6 +466,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
+    </article>
   );
 }

@@ -4,17 +4,19 @@ import {
   PenTool, 
   Zap, 
   CheckCircle, 
+  ArrowRight, 
+  Star, 
   Users, 
   Award, 
   Target,
-  ArrowRight,
-  Star,
   MessageSquare,
   Mail,
   Phone
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "wouter";
+import SEOHead from "@/components/SEOHead";
 
 export default function Services() {
   const services = [
@@ -125,6 +127,11 @@ export default function Services() {
 
   return (
     <div className="flex-grow">
+      <SEOHead
+        title="خدمات المستقل الذكي - حلول ذكاء اصطناعي متكاملة"
+        description="اكتشف مجموعتنا الواسعة من خدمات الذكاء الاصطناعي المصممة خصيصًا لتلبية احتياجات عملك. من التدريب والاستشارات إلى إنتاج المحتوى والأتمتة، نقدم حلولًا مبتكرة لزيادة إنتاجيتك ونجاحك."
+        keywords="خدمات الذكاء الاصطناعي, تدريب الذكاء الاصطناعي, استشارات الذكاء الاصطناعي, إنتاج محتوى بالذكاء الاصطناعي, أتمتة العمليات, حلول الذكاء الاصطناعي للشركات"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
@@ -290,7 +297,7 @@ export default function Services() {
           <p className="text-xl text-blue-100 mb-8 leading-relaxed">
             ابدأ رحلتك نحو النجاح اليوم واكتشف كيف يمكن للذكاء الاصطناعي أن يغير مستقبلك المهني
           </p>
-          
+
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center mb-12">
             <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 font-semibold">
               <MessageSquare className="ml-2 h-5 w-5" />
