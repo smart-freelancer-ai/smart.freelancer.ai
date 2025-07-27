@@ -1,0 +1,24 @@
+# Task: Implement Essential SEO Optimizations for Website
+
+I need to implement crucial SEO optimizations for my Arabic website "المستقل الذكي". Focus on the most impactful changes that can be done efficiently.
+
+**Requirements:**
+
+1.  **Meta Tags:**
+    *   For the **Homepage (`/`)**: Set meta title to "المستقل الذكي | دليلك لزيادة الدخل بالذكاء الاصطناعي" and meta description to "منصة المستقل الذكي تمكن المستقلين العرب من مضاعفة إنتاجيتهم ودخلهم باستخدام أحدث أدوات واستراتيجيات الذكاء الاصطناعي."
+    *   For the **Blog page (`/blog`)**: Set meta title to "مدونة المستقل الذكي | مقالات ونصائح في الذكاء الاصطناعي والعمل الحر" and meta description to "اكتشف أحدث المقالات والنصائح حول كيفية استخدام الذكاء الاصطناعي لتعزيز مسيرتك المهنية كمستقل عربي."
+    *   For the **Services page (`/services`)**: Set meta title to "خدمات المستقل الذكي | دورات واستشارات في الذكاء الاصطناعي للعمل الحر" and meta description to "نقدم دورات تدريبية، استشارات شخصية، وحلول أتمتة لمساعدة المستقلين العرب على تحقيق أقصى استفادة من الذكاء الاصطناعي."
+    *   For the **Contact page (`/contact`)**: Set meta title to "تواصل معنا | المستقل الذكي" and meta description to "تواصل مع فريق المستقل الذكي للحصول على استشارات مجانية، دعم فني، أو للاستفسار عن خدماتنا في الذكاء الاصطناعي والعمل الحر."
+    *   Ensure all meta tags are correctly placed in the `<head>` section of each page or in a global layout component if applicable.
+
+2.  **Robots.txt:** Create a `robots.txt` file in the public directory to allow all search engine crawling.
+
+3.  **Semantic HTML:** Review the existing HTML structure and ensure proper use of semantic HTML5 elements (e.g., `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`) for better search engine understanding.
+
+4.  **Alt Tags for Images:** For any existing images in the project (especially on the homepage and services page), add descriptive `alt` attributes in Arabic. If images are loaded dynamically, ensure the code supports adding alt tags.
+
+**Important Considerations:**
+- Maintain existing Arabic RTL layout and styling.
+- Apply changes efficiently to minimize code modifications.
+
+Please confirm successful implementation of these SEO optimizations.
